@@ -4,6 +4,7 @@ import csv
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
 total_months = 0
+net_total = 0
 
 # Open and read csv
 with open(csvpath) as budget_data:
@@ -14,14 +15,14 @@ with open(csvpath) as budget_data:
     header = next(reader) # skips header
     for row in reader:
         total_months += 1 # adds 1 for each row
-
-print(f'Total Months: {total_months}')
-
-               
-
+        net_total += int(row[1])
+    print(f'Total Months: {total_months}')
+    print(f'Net Total Profit: ${net_total}')
 
 
 # The net total amount of "Profit/Losses" over the entire period
+
+        
 
 # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 
