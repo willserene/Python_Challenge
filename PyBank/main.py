@@ -5,6 +5,7 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 
 total_months = 1
 net_total = 0
+monthly_change = 0
 monthly_change_list = []
 
 
@@ -25,25 +26,28 @@ with open(csvpath) as budget_data:
     
     header = next(reader) # skips header
     previous_month = next(reader)
-    net_total = previous_month
+    net_total += int(previous_month[1])
     for row in reader:
         total_months += 1 # adds 1 for each row
-        net_total += int(row[1])
         
-        monthly_change = (int(row[1])-int(previous_month[1]))
+        net_total += int(row[1])
+
         previous_month = int(row[1])
+        
+        monthly_change = int(row[1]) - previous_month
+        
 
         monthly_change_list.append(monthly_change)
 
 
-        
+    print(f'monthly changes: {monthly_change_list}')
 
 
 
-
-    # print(f'Total Months: {total_months}') Testing
-    # print(f'Net Total Profit: ${net_total}') Testing
-
+   #  print(f'previous month: {previous_month}')
+    print(f'Total Months: {total_months}') 
+    print(f'Net Total Profit: ${net_total}')
+    
         
 
 
