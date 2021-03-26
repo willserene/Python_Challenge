@@ -77,18 +77,18 @@ with open(csvpath) as budget_data:
 
     #specify file to write to
 output_path = os.path.join("Analysis", "Financial_Analysis.txt")   
-with open(output_path, 'w') as txt_file:
+with open(output_path, 'w', newline = '') as txt_file:
     csvwriter = csv.writer(txt_file)
-    output = (
-        f"Financial Analysis\n"
-        f"------------------------\n"
-        f"Total Months: {total_months}\n"
-        f"Total Profit: ${net_total}\n"
-        f"Average Change: ${monthly_average: .2f}\n"
-        f"Greatest Increase in Profits: \n"
-        f"Greatest Decrease in Profits: \n")
+    csvwriter.writerow(['Financial Analysis'])
+        # f"Financial Analysis\n"
+        # f"------------------------\n"
+        # f"Total Months: {total_months}\n"
+        # f"Total Profit: ${net_total}\n"
+        # f"Average Change: ${monthly_average: .2f}\n"
+        # f"Greatest Increase in Profits: \n"
+        # f"Greatest Decrease in Profits: \n")
     
-    print(output)
+    # print(output)
 
         
 
