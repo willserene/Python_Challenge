@@ -25,15 +25,13 @@ with open(csvpath) as budget_data:
 # The net total amount of "Profit/Losses" over the entire period
     
     header = next(reader) # skips header
-    previous_month = next(reader)  # do we need "header"? 
+    previous_month = next(reader)  
     net_total = int(previous_month[1])
     for row in reader:
         total_months += 1 # adds 1 for each row
         
         net_total += int(row[1])
-
-        
-        
+       
         monthly_change = int(row[1]) - int(previous_month[1]) 
         
         previous_month = row
@@ -41,18 +39,56 @@ with open(csvpath) as budget_data:
         monthly_change_list.append(monthly_change)
 
     monthly_average = sum(monthly_change_list) / len(monthly_change_list)
+    
+    max_monthly_increase = max(monthly_change_list)
+    max_monthly_decrease = min(monthly_change_list)
+
+    # matching appropriate month with max increase and max decrease
+    max_increase_month = monthly_change_list.index(max(monthly_change_list)) + 1
+    max_decrease_month = monthly_change_list.index(min(monthly_change_list)) + 1
+
+   #  max_month = max_increase_month.append(row[0])
 
 
-    print(f'monthly changes: {monthly_change_list}')
-    print(f'monthly average: {monthly_average}')
+
+    # print(f'monthly changes: {monthly_change_list}') # Testing
+    # print(f'previous month: {previous_month}') # Testing
+    # print(f'max increase: {max_month}') Testing
+    # print(f'max increase: {max_month}')
 
 
-    print(f'previous month: {previous_month}')
+    print(f'max monthly increase: ${max_monthly_increase}')
+    print(f'max monthly decrease: ${max_monthly_decrease}')
+    print(f'monthly average: ${monthly_average:.2f}')
     print(f'Total Months: {total_months}') 
     print(f'Net Total Profit: ${net_total}')
     
-        
 
+#   output = (
+#         f"Financial Analysis\n"
+#         f"------------------------\n"
+#         f"Total Months: {total_months}\n"
+#         f"Total Profit: ${net_total}\n"
+#         f"Average Change: ${monthly_average: .2f}\n"
+#         f"Greatest Increase in Profits: \n"
+#         f"Greatest Decrease in Profits: \n")
+#     print(output)
+
+
+    #specify file to write to
+output_path = os.path.join("Analysis", "Financial_Analysis.txt")   
+with open(output_path, 'w') as txt_file:
+    csvwriter = csv.writer(txt_file)
+    output = (
+        f"Financial Analysis\n"
+        f"------------------------\n"
+        f"Total Months: {total_months}\n"
+        f"Total Profit: ${net_total}\n"
+        f"Average Change: ${monthly_average: .2f}\n"
+        f"Greatest Increase in Profits: \n"
+        f"Greatest Decrease in Profits: \n")
+    
+    print(output)
 
         
 
