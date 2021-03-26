@@ -25,7 +25,7 @@ with open(csvpath) as budget_data:
 # The net total amount of "Profit/Losses" over the entire period
     
     header = next(reader) # skips header
-    previous_month = next(reader)
+    previous_month = next(reader)  # do we need "header"? 
     net_total += int(previous_month[1])
     for row in reader:
         total_months += 1 # adds 1 for each row
@@ -34,7 +34,7 @@ with open(csvpath) as budget_data:
 
         previous_month = int(row[1])
         
-        monthly_change = int(row[1]) - previous_month
+        monthly_change = int(row[1]) - previous_month # i clearly don't know where this reference is
         
 
         monthly_change_list.append(monthly_change)
