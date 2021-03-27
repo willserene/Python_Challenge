@@ -8,7 +8,7 @@ candidates = [] # list of candidates that received votes
 candidate_votes = [] # list of the number of votes for each candidate
 
 Khan_votes = ""
-Khan_percent = 0
+Khan_percent = 0.00
 OTooley_votes = ""
 OTooley_percent = ""
 Correy_votes = ""
@@ -38,11 +38,11 @@ with open(csvpath) as csvfile:
 
             candidate_votes[index] += 1
         
-    print(total_votes)  
+    # print(total_votes)  
     # 3521001 
-    print(candidates) 
+    # print(candidates) 
         # ['Khan', 'Correy', 'Li', "O'Tooley"]
-    print(candidate_votes) 
+    # print(candidate_votes) 
     # [2218231, 704200, 492940, 105630]
     
   
@@ -51,22 +51,36 @@ with open(csvpath) as csvfile:
     Li_votes = candidate_votes[2]
     OTooley_votes = candidate_votes[3]
 
-    print(Khan_votes)
-    print(Correy_votes)
-    print(Li_votes)
-    print(OTooley_votes)
+    # print(Khan_votes)
+    # print(Correy_votes)
+    # print(Li_votes)
+    # print(OTooley_votes)
     
     Khan_percent = (Khan_votes / total_votes) * 100
     Correy_percent = (Correy_votes / total_votes) * 100
     Li_percent = (Li_votes / total_votes) * 100
     OTooley_percent = (OTooley_votes / total_votes) * 100
        
-    print(Khan_percent)
-    print(Correy_percent)
-    print(Li_percent)
-    print(OTooley_percent)
+    # print(Khan_percent)
+    # print(Correy_percent)
+    # print(Li_percent)
+    # print(OTooley_percent)
 
+output = (
+    f"Election Results\n"
+    f"--------------------------\n"
+    f"Total Votes: {total_votes}\n"
+    f"--------------------------\n"
+    f"Khan: {Khan_percent:.3f}% ({Khan_votes})\n"
+    f"Correy: {Correy_percent:.3f}% ({Correy_votes})\n"
+    f"Li: {Li_percent:.3f}% ({Li_votes})\n"
+    f"O'Tooley: {OTooley_percent:.3f}% ({OTooley_votes})\n"
+    f"--------------------------\n"
+    f"Winner: Khan \n"
+    f"--------------------------\n"
     
+    )
+print(output)    
       
 
 
