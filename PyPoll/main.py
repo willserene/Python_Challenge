@@ -10,11 +10,11 @@ candidate_votes = [] # list of the number of votes for each candidate
 Khan_votes = ""
 Khan_percent = 0.00
 OTooley_votes = ""
-OTooley_percent = ""
+OTooley_percent = 0.00
 Correy_votes = ""
-Correy_percent = ""
+Correy_percent = 0.00
 Li_votes = ""
-Li_percent = ""
+Li_percent = 0.00
 
 
 with open(csvpath) as csvfile:
@@ -41,7 +41,7 @@ with open(csvpath) as csvfile:
     # print(total_votes)  
     # 3521001 
     # print(candidates) 
-        # ['Khan', 'Correy', 'Li', "O'Tooley"]
+    # ['Khan', 'Correy', 'Li', "O'Tooley"]
     # print(candidate_votes) 
     # [2218231, 704200, 492940, 105630]
     
@@ -81,6 +81,10 @@ output = (
     
     )
 print(output)    
+
+output_path = open('Analysis/Election_Results.txt', 'w')
+output_path.write(output)
+output_path.close()
       
 
 
