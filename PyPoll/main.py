@@ -1,13 +1,13 @@
 import csv
 import os
 
-# csvpath = os.path.join('Resources', 'election_data.csv')
+csvpath = os.path.join('Resources', 'election_data.csv')
 
-# total_votes = 0 # total of votes cast
-# candidates = [] # list of candidates that received votes
-# candidate_list = []
+total_votes = 0 # total of votes cast
+candidates = [] # list of candidates that received votes
+candidate_list = []
 # vote_percent = 0.00 # percent of votes for each candidate
-# candidate_votes = [] # list of votes won for each candidate
+candidate_votes = [] # list of votes won for each candidate
 # vote_percent_list = [] # list of percent of votes for each candidate
 
 # Khan_list = []
@@ -19,8 +19,8 @@ import os
 # Li_list = []
 # Li_vote = 0
 
-
-
+candidate_dict = {"candidate1: Khan"}
+use dict key to reference
 # with open(csvpath) as election_data:
 #     reader = csv.reader(election_data)
 #     header = next(reader)

@@ -7,7 +7,7 @@ total_months = 1
 net_total = 0
 monthly_change = 0
 monthly_change_list = []
-
+months = []
 
 # average_change = mean monthly change
 # greatest_increase = max monthly change
