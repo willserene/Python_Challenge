@@ -7,5 +7,6 @@ Financial Analysis:
 
 Election Results:
 
-![Pythonchallenge1](https://user-images.githubusercontent.com/79114121/133499017-a323120c-d451-42e4-86e7-ae248a7c6afc.png)
+![Pythonchallenge2](https://user-images.githubusercontent.com/79114121/133499148-e3c82a4c-a62b-4c9c-a0ad-787b5ed089b2.png)
+
 
